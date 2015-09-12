@@ -1,9 +1,6 @@
 package queue
 
-import (
-	"fmt"
-	"sync"
-)
+import "sync"
 
 func NewQueue() *Queue {
 	head := &Node{}
@@ -81,10 +78,4 @@ func (q *Queue) Clear() {
 
 func (q *Queue) Len() int {
 	return q.length
-}
-
-func (q *Queue) SnapShot() {
-	for node := q.head.back; node != nil; node = node.back {
-		fmt.Print(node.value, `    `)
-	}
 }
