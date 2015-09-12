@@ -1,6 +1,7 @@
 package queue
 
 import (
+	"fmt"
 	`math/rand`
 	"testing"
 )
@@ -23,11 +24,12 @@ func TestQueue(t *testing.T) {
 		case <-ch:
 			sum++
 			if sum == goroutine {
-				q.SnapShot()
+				//q.SnapShot()
 				for value := q.Dequeue(); value != nil; value = q.Dequeue() {
 					//fmt.Println(value)
 				}
-				q.SnapShot()
+				fmt.Println(q.Len())
+				//q.SnapShot()
 				return
 			}
 		}
